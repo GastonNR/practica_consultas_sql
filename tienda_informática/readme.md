@@ -2,7 +2,7 @@
 ## Tienda informática
 ### Modelo entidad/relación
 
-![Modelo entidad/relación](/tienda_informática/img/tienda_de_informatica.jpg)
+![Modelo entidad/relación](/img/tienda_de_informatica.jpg)
 
 ## Consultas sobre una tabla
 1. Lista el nombre de todos los productos que hay en la tabla producto.
