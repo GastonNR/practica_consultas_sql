@@ -1,0 +1,1 @@
+# Ejercicios resueltos para consultas en lenguaje SQL.
