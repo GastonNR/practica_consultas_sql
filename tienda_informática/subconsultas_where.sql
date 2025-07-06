@@ -55,3 +55,26 @@ WHERE producto.codigo_fabricante = (
 
 --Subconsultas con ALL y ANY
 
+--Devuelve el producto más caro que existe en la tabla producto sin hacer uso de MAX, ORDER BY ni LIMIT.
+SELECT producto.nombre, precio FROM producto
+WHERE producto.precio >= ALL(
+    SELECT producto.precio FROM producto
+);
+
+--Devuelve el producto más barato que existe en la tabla producto sin hacer uso de MIN, ORDER BY ni LIMIT.
+SELECT producto.nombre, precio FROM producto
+WHERE producto.precio <= ANY(
+    SELECT producto.precio FROM producto
+);
+
+--Devuelve los nombres de los fabricantes que tienen productos asociados. (Utilizando ALL o ANY).
+SELECT fabricante.nombre from fabricante
+WHERE fabricante.id = ANY(
+    SELECT producto.codigo_fabricante from producto
+);
+
+--Devuelve los nombres de los fabricantes que no tienen productos asociados. (Utilizando ALL o ANY).
+SELECT fabricante.nombre from fabricante
+WHERE NOT (fabricante.id = ANY(
+    SELECT producto.codigo_fabricante from producto
+));
