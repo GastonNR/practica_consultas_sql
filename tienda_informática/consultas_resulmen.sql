@@ -15,3 +15,15 @@ JOIN fabricante ON producto.codigo_fabricante = fabricante.id;
 
 --Calcula la media del precio de los productos
 SELECT AVG(precio) AS 'Media del precio' FROM producto;
+
+--Calcula el precio más barato de todos los productos.
+SELECT MIN(precio) AS 'Precio mínimo' FROM producto;
+
+--Calcula el precio más caro de todos los productos.
+SELECT MAX(precio) AS 'Precio más caro' FROM producto;
+
+--Lista el nombre y el precio del producto más barato.
+SELECT nombre AS 'Producto', precio FROM producto
+WHERE precio = (
+    SELECT MIN(precio) FROM producto
+);
